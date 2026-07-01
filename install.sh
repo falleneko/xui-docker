@@ -9,7 +9,10 @@ sudo chown $USER:$USER vlpanel
 cd vlpanel
 mkdir certs
 cd certs
-openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout privkey.pem -out cert.pem
+openssl req -x509 -newkey rsa:4096 -nodes -days 365 \
+  -keyout privkey.pem \
+  -out cert.pem \
+  -subj "/C=EU/ST=BG/L=Burgas/O=VlPanel/OU=VlPanel/CN=server"
 cd ..
 cat << EOF > docker-compose.yaml
 services:
