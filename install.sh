@@ -42,6 +42,9 @@ services:
       - ./cert:/etc/nginx/cert:ro
     networks:
       - vpn-net
+networks:
+  vpn-net:
+    driver: bridge
 EOF
 mkdir nginx
 cat << EOF > nginx/srv.conf
