@@ -63,11 +63,11 @@ server {
     location / {
         proxy_pass         http://3xui:2053; 
         proxy_http_version 1.1;
-        proxy_set_header   Host              $host;
-        proxy_set_header   X-Real-IP         $remote_addr;
-        proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
-        proxy_set_header   X-Forwarded-Proto $scheme;
-        proxy_set_header   Upgrade           $http_upgrade;
+        proxy_set_header   Host              \$host;
+        proxy_set_header   X-Real-IP         \$remote_addr;
+        proxy_set_header   X-Forwarded-For   \$proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto \$scheme;
+        proxy_set_header   Upgrade           \$http_upgrade;
         proxy_set_header   Connection        "upgrade";
         proxy_read_timeout 3600s;
         proxy_send_timeout 3600s;
@@ -76,11 +76,11 @@ server {
     location /vlsub/ {
         proxy_pass         http://3xui:2096;
         proxy_http_version 1.1;
-        proxy_set_header   Host              $host;
-        proxy_set_header   X-Real-IP         $remote_addr;
-        proxy_set_header   X-Forwarded-For   $proxy_add_x_forwarded_for;
-        proxy_set_header   X-Forwarded-Proto $scheme;
-        proxy_set_header   Upgrade           $http_upgrade;
+        proxy_set_header   Host              \$host;
+        proxy_set_header   X-Real-IP         \$remote_addr;
+        proxy_set_header   X-Forwarded-For   \$proxy_add_x_forwarded_for;
+        proxy_set_header   X-Forwarded-Proto \$scheme;
+        proxy_set_header   Upgrade           \$http_upgrade;
         proxy_set_header   Connection        "upgrade";
         proxy_read_timeout 3600s;
         proxy_send_timeout 3600s;
@@ -90,7 +90,7 @@ server {
  
 server {
     listen 80;
-    return 301 https://$host$request_uri;
+    return 301 https://\$host\$request_uri;
 }
 EOF
 docker compose up -d
