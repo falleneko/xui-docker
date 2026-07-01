@@ -23,7 +23,7 @@ services:
     volumes:
       - ./db:/etc/x-ui
       - ./logs:/var/log/xray
-      - ./cert:/root/cert
+      - ./certs:/root/certs
     environment:
       XUI_ENABLE_FAIL2BAN: "true"
     tty: true
@@ -39,7 +39,7 @@ services:
       - "443:443"
     volumes:
       - ./nginx/:/etc/nginx/conf.d
-      - ./cert:/etc/nginx/cert:ro
+      - ./certs:/etc/nginx/certs:ro
     networks:
       - vpn-net
 networks:
