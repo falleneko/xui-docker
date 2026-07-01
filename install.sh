@@ -51,8 +51,8 @@ cat << EOF > nginx/srv.conf
 server {
     listen 443 ssl;
  
-    ssl_certificate     /etc/nginx/cert/cert.pem;
-    ssl_certificate_key /etc/nginx/cert/privkey.pem;
+    ssl_certificate     /etc/nginx/certs/cert.pem;
+    ssl_certificate_key /etc/nginx/certs/privkey.pem;
  
     ssl_protocols             TLSv1.2 TLSv1.3;
     ssl_ciphers               HIGH:!aNULL:!MD5;
